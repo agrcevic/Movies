@@ -18,7 +18,7 @@ app.set("views", viewsPath);
 //seteamos el puerto y levantamos el server
 const port = 3000;
 
-app.listen(pport, () => {
+app.listen(port, () => {
   console.log(chalk.blue("APLICACION ESCUCHANDO!!!! "));
   console.log(chalk.blue("Link directo... http://localhost:" + port));
 });
