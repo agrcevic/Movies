@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIES</title>
+</head>
+<body>
+<!-- HEADER INICIO-->
+<header>
+    <h1>PAGINA DETALLE DE PELICULAS</h1>
+</header>
+<section>
+    <ul>
+        <li><a href="/users/listUsers">Lista de usuarios</a></li>
+        <li><a href="/products/detailMovies">Detalle de peliculas</a></li>
+        <li><a href="/">home</a></li>
+    </ul>
+</section>
+<!-- HEADER FIN-->
+<!--------------------------------------->
+<!-- CONTENIDO PRINCIPAL INICIO-->
+<section>
+    <% if(detailMovie){ %>
+        <% for(let x=1; x < 10; x++) { %>
+            <h2><%= x %>:<%= detailMovie.titulo %></h2>
+            <p><%= detailMovie.tipo%></p>
+            <p><%= detailMovie.actor%></p>
+        <% } %>
+    <% }else{ %>
+        <h2>NO HAY NADA PARA MOSTRAR</h2>
+    <% } %>
+</section>
+<!-- CONTENIDO PRINCIPAL FIN-->
+<!--------------------------------------->
+<!-- FOOTER INICIO-->
+<footer>
+    <h3>FOOTER</h3>
+</footer>
+<!-- FOOTER FIN-->
+</body>
+</html>
