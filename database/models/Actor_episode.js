@@ -46,4 +46,5 @@ module.exports = (sequelize, dataTypes)=>{
     }
     return Movies;
     */
+    return Actor_episode;
 }

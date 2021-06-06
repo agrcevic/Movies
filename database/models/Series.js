@@ -51,6 +51,7 @@ module.exports = (sequelize, dataTypes)=>{
                 timestamps: true
             });
     }
-    return Series;
+    
     */
+    return Series;
 }

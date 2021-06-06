@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes)=>{
-    let alias = 'actors';
+    let alias = 'Actors';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -51,6 +51,7 @@ module.exports = (sequelize, dataTypes)=>{
                 timestamps: true
             });
     }
-    return Movies;
+   
     */
+    return Actors;
 }

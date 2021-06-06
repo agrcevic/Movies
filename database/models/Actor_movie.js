@@ -44,6 +44,7 @@ module.exports = (sequelize, dataTypes)=>{
                 timestamps: true
             });
     }
-    return Movies;
+    
     */
+   return Actor_movie
 }

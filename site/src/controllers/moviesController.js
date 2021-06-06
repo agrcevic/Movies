@@ -5,7 +5,7 @@ const db = require('../../../database/models');
 
 module.exports = {
     index: function (req, res){
-         db.Movies.findall()
+         db.Movies.findAll()
         .then(function(allMovies){
            return res.render('index', {allMovies}) 
         })
