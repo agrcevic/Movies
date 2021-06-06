@@ -32,21 +32,15 @@ module.exports = (sequelize, dataTypes)=>{
         timestamps : true
     };
 // Relacion de tablas
-/*
+
     const Genres = sequelize.define(alias, cols, config);
         Genres.associate = function(models) {
-            Genres.belongsTo(models.Genres, {
-                as: "genres",
+            Genres.belongsTo(models.Movies, {
+                as: "movies",
                 foreignKey : "genre_id"
             });
-            Genres.belongsToMany(models.Actors, {
-                as: "actors",
-                through: "actor_movie",
-                foreignKey : "movie_id",
-                otherKey: "actor_id",
-                timestamps: true
-            });
+           
     }
     return Genres;
-    */
+    
 }

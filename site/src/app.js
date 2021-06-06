@@ -38,5 +38,5 @@ const error404 = require('./middlewares/notFoundMiddleware');
 app.use(error404);
 
 //crud
-app.use(express.urlenconded({extended:false}));
-app.use(express.json());
+//app.use(express.urlenconded({extended:false}));
+//app.use(express.json());
