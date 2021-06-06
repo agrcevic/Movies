@@ -9,3 +9,13 @@ const moviesController = require(path.resolve(__dirname,"../controllers/moviesCo
 router.get("/", moviesController.index);
 
 module.exports = router;
+
+//crud
+// Rutas de Controller
+router.get('/', moviesController.index);
+router.get('/create', moviesController.create);
+router.get('/:id', moviesController.show);
+router.post('/', upload.single('images'), moviesController.store);
+router.get('/:id/edit', moviesController.edit);
+router.put('/:id', upload.single('images'), moviesController.update);
+router.delete('/:id', moviesController.destroy);
