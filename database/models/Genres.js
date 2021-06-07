@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes)=>{
-    let alias = 'genres';
+    let alias = 'Genres';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -34,6 +34,7 @@ module.exports = (sequelize, dataTypes)=>{
 // Relacion de tablas
 
     const Genres = sequelize.define(alias, cols, config);
+    return Genres;
         Genres.associate = function(models) {
             Genres.belongsTo(models.Movies, {
                 as: "movies",
@@ -41,6 +42,6 @@ module.exports = (sequelize, dataTypes)=>{
             });
            
     }
-    return Genres;
+ 
     
 }

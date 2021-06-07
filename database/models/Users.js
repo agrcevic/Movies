@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes)=>{
-    let alias = 'users';
+    let alias = 'Users';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -40,9 +40,10 @@ module.exports = (sequelize, dataTypes)=>{
         timestamps : true
     };
 // Relacion de tablas
-/*
+
     const Users = sequelize.define(alias, cols, config);
-        Users.associate = function(models) {
+    return Users;
+       /* Users.associate = function(models) {
             Users.belongsTo(models.Genres, {
                 as: "genres",
                 foreignKey : "genre_id"
@@ -57,5 +58,5 @@ module.exports = (sequelize, dataTypes)=>{
     }
     
     */
-    return Users;
+    
 }

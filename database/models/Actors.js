@@ -36,8 +36,10 @@ module.exports = (sequelize, dataTypes)=>{
         timestamps : true
     };
 // Relacion de tablas
-/*
+
     const Actors = sequelize.define(alias, cols, config);
+    return Actors;
+    
         Movies.associate = function(models) {
             Movies.belongsTo(models.Genres, {
                 as: "genres",
@@ -52,6 +54,6 @@ module.exports = (sequelize, dataTypes)=>{
             });
     }
    
-    */
-    return Actors;
+    
+    
 }

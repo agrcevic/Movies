@@ -40,13 +40,14 @@ module.exports = (sequelize, dataTypes)=>{
         },
     };
     let config = {
-        tableName : 'Movies',
+       tableName : 'movies',
         timestamps : true
     };
 // Relacion de tablas
 
-    const Movies = sequelize.define(alias, cols, config);
-        Movies.associate = function(models) {
+   const Movies = sequelize.define(alias, cols, config);
+   return Movies
+      /*  Movies.associate = function(models) {
             Movies.belongsTo(models.Genres, {
                 as: "genres",
                 foreignKey : "genere_id"
@@ -60,6 +61,6 @@ module.exports = (sequelize, dataTypes)=>{
                 timestamps: true
             });
     }
-
-   return Movies;
+*/
+   
 }
