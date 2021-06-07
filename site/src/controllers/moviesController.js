@@ -15,5 +15,27 @@ module.exports = {
        // let listMovies = {titulo: 'las aventuras de chatran', tipo: 'aventura', actor: 'john sarasa'};
         //return res.render('index', {listMovies})
     }
-}
 
+
+//experimento!!
+
+ //Mostrar los generos de las películas
+ MoviesCreate : function(req, res) {   
+    db.Category.findAll()
+    .then(function(Genres){
+        return res.render('movies/create', {genres})
+    })
+},
+
+
+    // Eliminar pelicula
+    moviesDelete: (req, res) => {
+        db.Movies.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.redirect("/");
+    },
+
+}
