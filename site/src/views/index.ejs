@@ -21,15 +21,16 @@
 <!--------------------------------------->
 <!-- CONTENIDO PRINCIPAL INICIO-->
 <section>
-    <% if(listMovies){ %>
-        <% for(let x=1; x < 10; x++) { %>
-            <h2><%= x %>:<%= listMovies.titulo %></h2>
-            <p><%= listMovies.tipo%></p>
-            <p><%= listMovies.actor%></p>
-        <% } %>
+    <% if(movies){ %>
+        <% for (let x=0; x < movies.length; x++) { %> 
+            <li>
+                <a href="/movies/<%=movies[x].id%>"><%= x %>: <%=movies[x].title%> </a>
+            </li>
+        <% } %> 
     <% }else{ %>
         <h2>NO HAY NADA PARA MOSTRAR</h2>
     <% } %>
+
 </section>
 <!-- CONTENIDO PRINCIPAL FIN-->
 <!--------------------------------------->
@@ -40,3 +41,7 @@
 <!-- FOOTER FIN-->
 </body>
 </html>
+
+
+
+

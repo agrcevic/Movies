@@ -44,23 +44,22 @@ module.exports = (sequelize, dataTypes)=>{
         timestamps : true
     };
 // Relacion de tablas
+const Movies = sequelize.define(alias, cols, config);
 
-   const Movies = sequelize.define(alias, cols, config);
-   return Movies
-      /*  Movies.associate = function(models) {
-            Movies.belongsTo(models.Genres, {
-                as: "genres",
-                foreignKey : "genere_id"
-            });
-            
-            Movies.belongsToMany(models.Actors, {
-                as: "actors",
-                through: "actor_movie",
-                foreignKey : "movie_id",
-                otherKey: "actor_id",
-                timestamps: true
-            });
-    }
-*/
+Movies.associate = function(models) {
+    Movies.belongsTo(models.Genres, {
+        as: "genres",
+        foreignKey : "genre_id"
+    }); // de 1 a muchos
+    
+    Movies.belongsToMany(models.Actors, {
+        as: "actors",
+        through: "actor_movie",
+        foreignKey : "movie_id",
+        otherKey: "actor_id",
+        timestamps: true // La tabla pivot tiene timestamp
+    }); // de Muchos a muchos
+}
+return Movies;
    
 }
