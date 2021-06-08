@@ -6,10 +6,12 @@ const moviesController = require(path.resolve(__dirname,"../controllers/moviesCo
 
 router.get("/", moviesController.index);
 
-router.get('/:id', moviesController.detail);
-
 router.get('/create', moviesController.create);
 router.post('/create', moviesController.store);
+
+router.get('/:id', moviesController.detail);
+
+
 
 
 
