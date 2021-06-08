@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIES</title>
+</head>
+<body>
+<!-- HEADER INICIO-->
+<header>
+    <h1>PAGINA CREAR PELICULA NUEVA</h1>
+</header>
+<section>
+    <ul>
+        <li><a href="/users/listUsers">Lista de usuarios</a></li>
+        <li><a href="/users/crearusuario">Crear un usuario nuevo</a></li>
+        <li><a href="/movies/create">Crear una pelicula nueva</a></li>
+        <li><a href="/">home</a></li>
+    </ul>
+</section>
+<!-- HEADER FIN-->
+            
+<!--FORMULARIO PARA CREAR PELICULA-->
+<form  action="/movies/create" method="POST" id="form">
+
+    <input type="text" name="title" placeholder="Titulo" id="title">
+
+    <input type="text" name="awards"  placeholder="Premios" id="awards">
+
+    <input type="text" name="length"  placeholder="Duración" id="length">
+
+    <input type="text" name="rating"  placeholder="Rating" id="rating">
+
+    <input type="date" name="release_date"  placeholder="Fecha de Estreno" id="release_date">
+
+    <select type="text" name="genre_id" placeholder="Generos" id="genre_id">
+        <% if (genres) { %>
+            <% for (let i = 0; i <genres.length; i++) { %>
+            <option value="<%=genres[i].id%>" selected='<%=genres[i].id%>'> 
+                <%=genres[i].name%>
+            </option>
+            <% } %>
+        <% } %>
+    </select>
+
+    <button type="submit"> Crear </button>
+
+</form>
+
+</body>
+</html>

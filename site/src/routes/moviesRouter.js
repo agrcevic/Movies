@@ -1,5 +1,3 @@
-const chalk = require("chalk");
-
 const express = require("express");
 const router = express.Router();
 
@@ -8,15 +6,11 @@ const moviesController = require(path.resolve(__dirname,"../controllers/moviesCo
 
 router.get("/", moviesController.index);
 
-module.exports = router;
+router.get('/:id', moviesController.detail);
 
-//crud
-// Rutas de Controller
-/*
 router.get('/create', moviesController.create);
-router.get('/:id', moviesController.show);
-router.post('/', upload.single('images'), moviesController.store);
-router.get('/:id/edit', moviesController.edit);
-router.put('/:id', upload.single('images'), moviesController.update);
-router.delete('/:id', moviesController.destroy);
-*/
+router.post('/create', moviesController.store);
+
+
+
+module.exports = router;

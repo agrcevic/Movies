@@ -13,7 +13,8 @@
 <section>
     <ul>
         <li><a href="/users/listUsers">Lista de usuarios</a></li>
-        <li><a href="/movies/detailMovies">Detalle de peliculas</a></li>
+        <li><a href="/users/crearusuario">Crear un usuario nuevo</a></li>
+        <li><a href="/movies/create">Crear una pelicula nueva</a></li>
         <li><a href="/">home</a></li>
     </ul>
 </section>
@@ -21,15 +22,26 @@
 <!--------------------------------------->
 <!-- CONTENIDO PRINCIPAL INICIO-->
 <section>
+    <br>
+    <ul>
     <% if(detailMovie){ %>
-        <% for(let x=1; x < 10; x++) { %>
-            <h2><%= x %>:<%= detailMovie.titulo %></h2>
-            <p><%= detailMovie.tipo%></p>
-            <p><%= detailMovie.actor%></p>
-        <% } %>
+            <li><h3> <%=detailMovie.title%> </h3></li>
+            <li> Genero= <%=detailMovie.genres.name%></li>
+            <li> Duracion= <%=detailMovie.length%></li>
+            <li> Rating= <%=detailMovie.rating%></li>
+            <li> Premios= <%=detailMovie.awards%></li>
+            <li> <p>Actores</p> </li>
+            <ul>
+                <% for (let x = 0; x < detailMovie.actors.length; x++) { %>
+                    <li>
+                        <%= detailMovie.actors[x].first_name%> <%= detailMovie.actors[x].last_name%>
+                    </li>
+                <% } %>
+            </ul>
     <% }else{ %>
         <h2>NO HAY NADA PARA MOSTRAR</h2>
     <% } %>
+    </ul>
 </section>
 <!-- CONTENIDO PRINCIPAL FIN-->
 <!--------------------------------------->
@@ -40,5 +52,4 @@
 <!-- FOOTER FIN-->
 </body>
 </html>
-
 

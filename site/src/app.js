@@ -5,6 +5,12 @@ const chalk = require("chalk");
 const express = require("express");
 const app = express();
 
+
+const methodOverride = require('method-override');
+
+app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'));
+
 //path estatico PUBLIC
 const path = require("path");
 const publicPath = path.resolve(__dirname, "../public");
@@ -28,6 +34,7 @@ app.listen(port, () => {
 //ruta main
 const moviesRouter = require(path.resolve(__dirname, "./routes/moviesRouter"));
 app.use("/", moviesRouter);
+app.use("/movies", moviesRouter);
 
 //ruta users
 const usersRouter = require(path.resolve(__dirname, "./routes/usersRouter"));
@@ -37,6 +44,9 @@ app.use("/users", usersRouter);
 const error404 = require('./middlewares/notFoundMiddleware');
 app.use(error404);
 
-//crud
-//app.use(express.urlenconded({extended:false}));
-//app.use(express.json());
+
+
+
+
+
+

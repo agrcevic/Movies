@@ -13,7 +13,8 @@
 <section>
     <ul>
         <li><a href="/users/listUsers">Lista de usuarios</a></li>
-        <li><a href="/movies/detailMovies">Detalle de peliculas</a></li>
+        <li><a href="/users/crearusuario">Crear un usuario nuevo</a></li>
+        <li><a href="/movies/create">Crear una pelicula nueva</a></li>
         <li><a href="/">home</a></li>
     </ul>
 </section>
@@ -24,7 +25,7 @@
     <% if(movies){ %>
         <% for (let x=0; x < movies.length; x++) { %> 
             <li>
-                <a href="/movies/<%=movies[x].id%>"><%= x %>: <%=movies[x].title%> </a>
+                <a href="/movies/<%=movies[x].id%>"><%= x+1 %>: <%=movies[x].title%> </a>
             </li>
         <% } %> 
     <% }else{ %>
@@ -41,7 +42,3 @@
 <!-- FOOTER FIN-->
 </body>
 </html>
-
-
-
-
