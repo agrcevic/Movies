@@ -1,38 +1,29 @@
-const chalk = require('chalk');
 
-const path = require('path');
+const bcryptjs = require('bcryptjs');
+const db = require("../../../database/models");
 
-module.exports = userController;
 
-let userController = {
-    listUsers: function(req, res){
-        let listUsers = {nombre: 'Bond... James Bond'};
-        return res.render('users/listUsers', {listUsers});
+const controller = {
+ //formulario de registro
+    login: (req, res) => {
+        res.render('login');
     },
-    
-    login: function(req, res){
-        res.render('login')
-    },
+    // Registro de Usuario
+    processLogin: (req, res) => {
 
-    register: function(req, res){
-        res.render('register')
-    },
+        db.Users.create({
+           name: req.body.fullname,
+           password: req.body.password,
+           email: req.body.email,
+        })
 
-    search: function(req, res){
-        let loQueBuscoElUsuario = req.query.search
-        res.send('loQueBuscoElUsuario')
+        .then(function (users) {
+            return res.render("processLogin", {users});
+        })
     },
+};
 
-    create: function(req, res){
-        let user ={
-          name: req.body.name,
-          age: req.body.age,
-          email: req.body.email
-        }
-        res.send(user)
-    }
-    //guardarla
-  
-}
+module.exports = controller;
+            
 
 

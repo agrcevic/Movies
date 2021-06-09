@@ -2,19 +2,18 @@ const chalk = require('chalk');
 
 const express = require('express');
 const router = express.Router();
-/*
-const path =  require('path');
-const userController = require(path.resolve(__dirname,"../controllers/usersController"));
 
-router.get('/listUsers', userController.listUsers);
-*/
+const path = require("path");
+const usersController = require(path.resolve(__dirname,"../controllers/usersController"));
+
+
+// Registro de usuario
+router.get ('/login',usersController.login);
+router.post('/login', usersController.processLogin);
+
+
+
+
+
+
 module.exports = router;
-
-//crud register
-/*
-router.get('/register', userController.register);
-router.post('/register', userController.create)
-router.get('/login', userController.login);
-router.get('/list', userController.list);
-router.get('/search', userController.search);
-*/
