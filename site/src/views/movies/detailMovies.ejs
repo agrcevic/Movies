@@ -26,22 +26,32 @@
     <ul>
     <% if(detailMovie){ %>
             <li><h3> <%=detailMovie.title%> </h3></li>
-            <li> Genero= <%=detailMovie.genres.name%></li>
-            <li> Duracion= <%=detailMovie.length%></li>
-            <li> Rating= <%=detailMovie.rating%></li>
-            <li> Premios= <%=detailMovie.awards%></li>
+            <li> Genero= <% if(detailMovie.genres) { %><%= detailMovie.genres.name %> <% } else { %> Sin informacion <% } %></li>
+            <li> Fecha= <% if(detailMovie.release_date) { %><%= detailMovie.release_date %> <% } else { %> Sin informacion <% } %></li>
+            <li> Duracion= <% if(detailMovie.length) { %><%= detailMovie.length %> <% } else { %> Sin informacion <% } %></li>
+            <li> Rating= <% if(detailMovie.rating) { %><%= detailMovie.rating %> <% } else { %> Sin informacion <% } %></li>
+            <li> Premios= <% if(detailMovie.awards) { %><%= detailMovie.awards %> <% } else { %> Sin informacion <% } %></li>
             <li> <p>Actores</p> </li>
             <ul>
-                <% for (let x = 0; x < detailMovie.actors.length; x++) { %>
-                    <li>
-                        <%= detailMovie.actors[x].first_name%> <%= detailMovie.actors[x].last_name%>
-                    </li>
+                <% if (detailMovie.actors.length>0) { %>
+                    <% for (let x = 0; x < detailMovie.actors.length; x++) { %>
+                        <li>
+                            <%= detailMovie.actors[x].first_name%> <%= detailMovie.actors[x].last_name%>
+                        </li>
+                    <% } %> 
+                <% } else {%>
+                    <li> <p>Sin informacion registrada</p> </li>
                 <% } %>
             </ul>
+            <!--Despues armar if para preguntar si es administrador para saber si se muestra o no estas opciones de editar o borrar pelicula-->
+            <button><a href="/movies/movieEdit/<%=detailMovie.id%>">Editar Pelicula </a></button>
+            <form action="/movies/delete/<%=detailMovie.id%>?_method=DELETE" method="POST">
+                <button type="submit">Borrar Pelicula</button>
+            </form>
     <% }else{ %>
         <h2>NO HAY NADA PARA MOSTRAR</h2>
     <% } %>
-    </ul>
+    </ul>  
 </section>
 <!-- CONTENIDO PRINCIPAL FIN-->
 <!--------------------------------------->
@@ -52,4 +62,3 @@
 <!-- FOOTER FIN-->
 </body>
 </html>
-
