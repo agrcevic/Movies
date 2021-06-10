@@ -1,19 +1,17 @@
-const chalk = require('chalk');
-
 const express = require('express');
 const router = express.Router();
 
-const path = require("path");
-const usersController = require(path.resolve(__dirname,"../controllers/usersController"));
+const userController = require ('../controllers/usersController');
+const authMiddleware = require('../middlewares/authMiddleware');
 
+router.get('/listUsers', authMiddleware, userController.listUsers);//para saber si tiene permiso para ver la lista de usuarios
 
-// Registro de usuario
-router.get ('/login',usersController.login);
-router.post('/login', usersController.processLogin);
+router.get ('/login',userController.login);
+router.post ('/login',userController.processLogin);
 
+router.get ('/logout',userController.logout);
 
-
-
-
+router.get ('/register',userController.register);
+router.post('/register', userController.processRegister);
 
 module.exports = router;

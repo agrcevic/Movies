@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +9,7 @@
 <body>
 <!-- HEADER INICIO-->
 <header>
-    <h1>PAGINA LOGIN</h1>
+    <h1>PAGINA PARA REGISTRAR UN USUARIO NUEVO</h1>
 </header>
 <section>
     <ul>    
@@ -38,16 +39,24 @@
 
 <!--FORMULARIO LOGIN-->
 <div>
-    <form action="/users/login" method="POST" id="form" >
+    <form action="/users/register" method="POST" id="form" >
         <div>
-            <label></label>
-            <input type="text" name="email" placeholder="ingrese el mail" id="email">
+            <label>Nombre</label>
+            <input type="text" name="name" placeholder="Nombre" id="name">
         </div>
         <div>
-            <label></label>
+            <label>Email</label>
+            <input type="text" name="email" placeholder="Ingrese el email" id="email">
+        </div>
+        <div>
+            <label>Password</label>
             <input type="password" name="password" placeholder="contraseña" id="password">
         </div>
-        <button type="submit"> Ingrese </button>
+        <div>
+            <label>Rol de usuario</label>
+            <input type="text" name="rol" placeholder="escribir 0=user o 1=admin" id="rol">
+        </div>
+        <button type="submit">Ingrese</button>
     </form> 
 </div>
 
