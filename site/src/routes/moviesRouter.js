@@ -1,4 +1,4 @@
-onst router = express.Router();
+const router = express.Router();
 
 const path = require("path");
 const moviesController = require(path.resolve(__dirname,"../controllers/moviesController"));

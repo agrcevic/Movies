@@ -1,3 +1,20 @@
+//darle color a los console log de consola
+const chalk = require("chalk");
+
+//importamos express y lo asignamos como una funcion para poder hacer uso de todos sus metodos
+const express = require("express");
+const app = express();
+
+
+//Usamos Sessions
+const session = require('express-session');
+app.use(session({
+  secret: 'Alexis',
+  resave: false, // no vuelve a guardar si no hay cambios
+  saveUninitialized: true, // guarda sesiones aunque todavia no haya datos
+}));
+
+const auth = require('./middlewares/auth');
 app.use(auth);
 
 const methodOverride = require('method-override');
@@ -38,6 +55,7 @@ app.use("/users", usersRouter);
 //ruta error404
 const error404 = require('./middlewares/notFoundMiddleware');
 app.use(error404);
+
 
 
 
