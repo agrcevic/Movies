@@ -11,32 +11,40 @@
     <h1>PAGINA LISTADO DE USUARIOS</h1>
 </header>
 <section>
-    <ul>
-        <li><a href="/users/listUsers">Lista de usuarios</a></li>
-        <li><a href="/movies/detailMovies">Detalle de peliculas</a></li>
-        <li><a href="/">home</a></li>
+    <ul>    
+        <% if (locals.user) { %>
+            <% if (locals._locals.session.auth) { %>               
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/listUsers">Lista de usuarios</a></li>
+                <li><a href="/users/register">Crear un usuario nuevo</a></li>
+                <li><a href="/movies/create">Crear una pelicula nueva</a></li>
+                <li><a href="/">home</a></li>
+                <li><a href="/404">Error 404</a></li>
+            <% } else  { %>
+                <li><a href="/">home</a></li>
+                <li>Hola <%= locals.user %></li>
+                <li><a href="/users/logout">LOGOUT</a></li>
+            <% } %>
+        <% } else  { %>
+            <li><a href="/users/login">Login</a></li>
+            <li><a href="/users/register">Registrarse</a></li>
+            <li><a href="/">home</a></li>
+        <% } %>
     </ul>
 </section>
 <!-- HEADER FIN-->
 <!--------------------------------------->
 <!-- CONTENIDO PRINCIPAL INICIO-->
-<section>
-    <% if(listUsers){ %>
-        <% for(let x=1; x < 10; x++) { %>
-            <h1><%= listUsers.nombre %></h1>
-        <% } %>
-    <% }else{ %>
-        <h2>NO HAY NADA PARA MOSTRAR</h2>
+<% if(users) { %>
+<ul>
+    <% for(let x=0; x < users.length; x++){ %>
+    <li><%= x %> : <%= users[x].name %></li>
     <% } %>
-    <!-- agrego search
-       <h2><search></h2>
-        <form action="/users/search" method= "get">
-            <input type="text" name="search">
-            <input type="submit" value="search">
-        </form>
+</ul>
+<% } else { %>
+    <h3>NADA PARA MOSTRAR TODAVIA</h3>
+<% } %>
 
-
-</section>
 <!-- CONTENIDO PRINCIPAL FIN-->
 <!--------------------------------------->
 <!-- FOOTER INICIO-->

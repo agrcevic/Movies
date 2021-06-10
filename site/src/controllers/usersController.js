@@ -1,4 +1,3 @@
-
 const bcryptjs = require('bcryptjs');
 const db = require("../../../database/models");
 
@@ -37,7 +36,7 @@ const controller = {
     },
     processRegister: (req, res) => {
         //buscamos si existe el usuario
-        db.User.findOne({
+        db.Users.findOne({
             where: {
                 email: req.body.email
             }

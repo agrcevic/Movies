@@ -101,6 +101,8 @@ const controller = {
         })
         .then(function () {
             return res.redirect("/");
-    
+        })
+    },
+};
 
 module.exports = controller;
