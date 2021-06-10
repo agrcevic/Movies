@@ -1,10 +1,4 @@
-//darle color a los console log de consola
-const chalk = require("chalk");
-
-//importamos express y lo asignamos como una funcion para poder hacer uso de todos sus metodos
-const express = require("express");
-const app = express();
-
+app.use(auth);
 
 const methodOverride = require('method-override');
 
@@ -20,6 +14,7 @@ app.use(express.static(publicPath));
 const viewsPath = path.resolve(__dirname, "./views");
 app.set("view engine", "ejs");
 app.set("views", viewsPath);
+
 
 //seteamos el puerto y levantamos el server
 const port = 3000;
@@ -43,7 +38,6 @@ app.use("/users", usersRouter);
 //ruta error404
 const error404 = require('./middlewares/notFoundMiddleware');
 app.use(error404);
-
 
 
 
