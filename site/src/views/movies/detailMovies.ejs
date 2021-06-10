@@ -11,11 +11,25 @@
     <h1>PAGINA DETALLE DE PELICULAS</h1>
 </header>
 <section>
-    <ul>
-        <li><a href="/users/listUsers">Lista de usuarios</a></li>
-        <li><a href="/users/crearusuario">Crear un usuario nuevo</a></li>
-        <li><a href="/movies/create">Crear una pelicula nueva</a></li>
-        <li><a href="/">home</a></li>
+    <ul>    
+        <% if (locals.user) { %>
+            <% if (locals._locals.session.auth) { %>               
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/listUsers">Lista de usuarios</a></li>
+                <li><a href="/users/register">Crear un usuario nuevo</a></li>
+                <li><a href="/movies/create">Crear una pelicula nueva</a></li>
+                <li><a href="/">home</a></li>
+                <li><a href="/404">Error 404</a></li>
+            <% } else  { %>
+                <li><a href="/">home</a></li>
+                <li>Hola <%= locals.user %></li>
+                <li><a href="/users/logout">LOGOUT</a></li>
+            <% } %>
+        <% } else  { %>
+            <li><a href="/users/login">Login</a></li>
+            <li><a href="/users/register">Registrarse</a></li>
+            <li><a href="/">home</a></li>
+        <% } %>
     </ul>
 </section>
 <!-- HEADER FIN-->
@@ -44,10 +58,14 @@
                 <% } %>
             </ul>
             <!--Despues armar if para preguntar si es administrador para saber si se muestra o no estas opciones de editar o borrar pelicula-->
+            <% if (locals.user) { %>
+                <% if (locals._locals.session.auth) { %> 
             <button><a href="/movies/movieEdit/<%=detailMovie.id%>">Editar Pelicula </a></button>
             <form action="/movies/delete/<%=detailMovie.id%>?_method=DELETE" method="POST">
                 <button type="submit">Borrar Pelicula</button>
             </form>
+                <% } %>
+            <% } %>
     <% }else{ %>
         <h2>NO HAY NADA PARA MOSTRAR</h2>
     <% } %>

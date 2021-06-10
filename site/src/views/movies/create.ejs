@@ -11,11 +11,25 @@
     <h1>PAGINA CREAR PELICULA NUEVA</h1>
 </header>
 <section>
-    <ul>
-        <li><a href="/users/listUsers">Lista de usuarios</a></li>
-        <li><a href="/users/crearusuario">Crear un usuario nuevo</a></li>
-        <li><a href="/movies/create">Crear una pelicula nueva</a></li>
-        <li><a href="/">home</a></li>
+    <ul>    
+        <% if (locals.user) { %>
+            <% if (locals._locals.session.auth) { %>               
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/listUsers">Lista de usuarios</a></li>
+                <li><a href="/users/register">Crear un usuario nuevo</a></li>
+                <li><a href="/movies/create">Crear una pelicula nueva</a></li>
+                <li><a href="/">home</a></li>
+                <li><a href="/404">Error 404</a></li>
+            <% } else  { %>
+                <li><a href="/">home</a></li>
+                <li>Hola <%= locals.user %></li>
+                <li><a href="/users/logout">LOGOUT</a></li>
+            <% } %>
+        <% } else  { %>
+            <li><a href="/users/login">Login</a></li>
+            <li><a href="/users/register">Registrarse</a></li>
+            <li><a href="/">home</a></li>
+        <% } %>
     </ul>
 </section>
 <!-- HEADER FIN-->
