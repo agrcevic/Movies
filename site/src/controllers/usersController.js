@@ -21,7 +21,7 @@ const controller = {
                     req.session.auth = false;
                 }
                 // Chequeo del campo Recordame
-                return res.redirect("/");
+                return res.redirect("/home");
             }else{//de lo contrario recargamos el login
                 res.render('users/login');//volvemos a la pantalla de registro pero con los datos vacios, a futuro poner mensaje de usuario existente
             }
@@ -29,14 +29,14 @@ const controller = {
     },
     logout : function(req, res) {
         req.session.destroy();
-        res.redirect('/');//deslogueo y voy al home
+        res.redirect('/home');//deslogueo y voy al home
     },
     register: (req, res) => {
         res.render('users/register');
     },
     processRegister: (req, res) => {
         //buscamos si existe el usuario
-        db.Users.findOne({
+        db.User.findOne({
             where: {
                 email: req.body.email
             }
@@ -59,7 +59,7 @@ const controller = {
                         // maxAge en ms
                         res.cookie('remember', user.email, { maxAge: 120000})
                     }
-                    return res.redirect("/");
+                    return res.redirect("/home");
                 }) )
             }else{//de lo contrario si existe el usuario
                 res.render('users/register');//volvemos a la pantalla de registro pero con los datos vacios, a futuro poner mensaje de usuario existente

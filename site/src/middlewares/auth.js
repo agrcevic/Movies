@@ -3,6 +3,6 @@ module.exports = (req, res, next) => {
         res.locals.user = req.session.user;
     };
     res.locals.session = req.session;
-    console.log('auth.js : DATOS ACTUALES DE MI SESSION :', res.locals.session);
+    //console.log('auth.js : DATOS ACTUALES DE MI SESSION :', res.locals.session);
     next();
 };

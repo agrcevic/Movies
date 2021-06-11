@@ -49,7 +49,7 @@ const controller = {
             rating: req.body.rating,
         })
         .then(function () {
-            return res.redirect("/");
+            return res.redirect("/home");
         })
     },
 
@@ -100,7 +100,7 @@ const controller = {
             }
         })
         .then(function () {
-            return res.redirect("/");
+            return res.redirect("/home");
         })
     },
 };

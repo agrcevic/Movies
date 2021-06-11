@@ -3,6 +3,6 @@ module.exports = (req, res, next) => {
     if (req.session.user && req.session.auth) {
         next();
     }else{
-        return res.redirect('/');//redireccionamiento por si no cumple ser administrador
+        return res.redirect('/home');//redireccionamiento por si no cumple ser administrador
     } 
 };

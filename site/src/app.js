@@ -38,14 +38,14 @@ const port = 3000;
 
 app.listen(port, () => {
   console.log(chalk.blue("APLICACION ESCUCHANDO!!!! "));
-  console.log(chalk.blue("Link directo... http://localhost:" + port));
+  console.log(chalk.blue("Link directo... http://localhost:" + port+'/home'));
 });
 
 /*-------------------DIRECCION PRINCIPAL PAGINAS-----------*/
 
 //ruta main
 const moviesRouter = require(path.resolve(__dirname, "./routes/moviesRouter"));
-app.use("/", moviesRouter);
+app.use("/home", moviesRouter);
 app.use("/movies", moviesRouter);
 
 //ruta users
